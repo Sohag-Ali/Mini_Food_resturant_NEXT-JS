@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import CartProvider from "@/context/CartProvider";
+import Image from "next/image";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,6 +13,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -29,11 +37,17 @@ export default function RootLayout({ children }) {
       >
         <header className="px-5 py-2 flex  items-center justify-between gap-5 bg-stone-800">
           <Link href="/">
-            <img src="/logo.png" alt="" className="w-[120px]" />
+            <Image
+              src="/logo.png"
+              alt="Yatun khaijan logo"
+              className="w-[120px]"
+              width={120}
+              height={50}
+            />
           </Link>
 
           <div className="space-x-5">
-            <Link className="btn" href="/foods">
+            <Link prefetch={false} className="btn" href="/foods">
               Food
             </Link>
             <Link className="btn" href="/reviews">
