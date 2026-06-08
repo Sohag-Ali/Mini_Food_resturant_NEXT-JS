@@ -14,6 +14,14 @@ const getFoods = async (search) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   return data.foods || [];
 };
+
+
+export const metadata = {
+  title: "All Foods",
+  description: "Best food review website in Bangladesh",
+};
+
+
 const FoodsPage = async ({ searchParams }) => {
   const { search = "" } = await searchParams;
 
